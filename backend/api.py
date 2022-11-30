@@ -17,6 +17,24 @@ logging.basicConfig(format='%(asctime)s,%(msecs)d %(levelname)-8s [%(filename)s:
 
 @app.route('/calculate', methods=['POST'])
 def calculate():
+
+
+    content = request.json
+    logging.info(content)
+
+    triggers = content['triggers']
+
+    trigger_list = [Trigger() for i in triggers]
+    objs = []
+
+    for obj in trigger_list:
+        objs.add(obj)
+
+
+
+    logging.info(objs)
+
+
     triggers = []
     floods = Trigger(0.3, -0.8, -0.5)
     political = Trigger(0.2, -0.5, -0.12)
