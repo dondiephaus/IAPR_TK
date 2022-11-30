@@ -3,7 +3,7 @@ class Trigger:
         self.probability = probability
         self.impact = impact
         self.weight = edge_weight
-        self.risk_value = self.calculate_risk()
+        self.trigger_risk = self.calculate_risk()
 
     def calculate_risk(self):
         return self.impact * self.probability * self.weight
