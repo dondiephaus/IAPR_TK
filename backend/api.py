@@ -24,26 +24,32 @@ def calculate():
 
     triggers = content['triggers']
 
-    trigger_list = [Trigger() for i in triggers]
+    trigger_list = [Trigger(i['probability'], i['impact'], i['edge_weight']) for i in triggers]
     objs = []
 
     for obj in trigger_list:
-        objs.add(obj)
+        objs.append(obj)
 
 
 
     logging.info(objs)
 
 
-    triggers = []
-    floods = Trigger(0.3, -0.8, -0.5)
-    political = Trigger(0.2, -0.5, -0.12)
-    triggers.append(floods)
-    triggers.append(political)
 
-    demand = RiskEvent(0.5, triggers)
-    logging.info(demand.calculate_risk())
-    return jsonify(demand.calculate_risk())
+
+    demand = RiskEvent(0.5, objs)
+    energy = RiskEvent(0.3, objs)
+    production = RiskEvent(0.2, objs)
+
+
+    d = demand.calculate_risk()
+    e = energy.calculate_risk()
+    p = production.calculate_risk()
+
+    result = d + e + p
+    
+    logging.info(result)
+    return jsonify(result)
 
 
 

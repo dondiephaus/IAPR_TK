@@ -1,0 +1,26 @@
+{
+    "triggers":[
+        {
+            "name": "Flood",
+            "probability": 0.4,
+            "impact": 0.8,
+            "edge_weight": 0.5
+        },
+            {
+            "name": "Politics",
+            "probability": 0.8,
+            "impact": 0.2,
+            "edge_weight": 0.9
+        }
+    ],
+
+    "risk_events":[
+
+        
+
+
+    ]
+
+
+
+}
